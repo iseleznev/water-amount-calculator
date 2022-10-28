@@ -135,6 +135,13 @@ class WaterAmountCalculatorTest {
     }
 
     @Test
+    public void calculateWithZeroLandscapeArrayLength() {
+        final int[] landscape = new int[0];
+        final long actual = new WaterAmountCalculator().calculate(landscape);
+        assertThat(actual).isEqualTo(0);
+    }
+
+    @Test
     public void calculateWithElementValueGreaterThanRangeTop() {
         int incorrectElementValue = new Random().nextInt() + 32001;
         final int[] landscape = new int[]{incorrectElementValue};
