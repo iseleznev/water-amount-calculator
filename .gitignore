@@ -1,0 +1,13 @@
+*.jar
+*.war
+.idea/
+.git/
+target/
+.mvn/
+mvnw.*
+*.exe
+*.tmp
+*.zip
+*.iml
+*.log
+*.class
