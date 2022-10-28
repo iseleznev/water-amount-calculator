@@ -5,10 +5,11 @@ import java.util.Random;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class WaterAmountCalculatorTest {
+
+public class WaterAmountCalculatorTest {
 
     @Test
-    public void calculateWithStartWithAscentFinishWithAscent() {
+    public void testCalculateWithStartWithAscentFinishWithAscent() {
         final Random random = new Random();
         int startElement = random.nextInt(31999);
         int hillElement = startElement + 1;
@@ -21,7 +22,7 @@ class WaterAmountCalculatorTest {
     }
 
     @Test
-    public void calculateWithFinishWithDescent2() {
+    public void testCalculateWithFinishWithDescent() {
         final Random random = new Random();
         int borderElement = random.nextInt(31999);
         int hillElement = borderElement + 1;
@@ -34,7 +35,7 @@ class WaterAmountCalculatorTest {
     }
 
     @Test
-    public void calculateWithStartWithEqualElements() {
+    public void testCalculateWithStartWithEqualElements() {
         final Random random = new Random();
         int borderElement = random.nextInt(31999);
         int hillElement = borderElement + 1;
@@ -47,7 +48,7 @@ class WaterAmountCalculatorTest {
     }
 
     @Test
-    public void calculateWithFinishWithEqualElements() {
+    public void testCalculateWithFinishWithEqualElements() {
         final Random random = new Random();
         int borderElement = random.nextInt(31999);
         int hillElement = borderElement + 1;
@@ -60,7 +61,7 @@ class WaterAmountCalculatorTest {
     }
 
     @Test
-    public void calculateWithStartWithEqualHillElements() {
+    public void testCalculateWithStartWithEqualHillElements() {
         final Random random = new Random();
         int borderElement = random.nextInt(31999);
         int hillElement = borderElement + 1;
@@ -73,7 +74,7 @@ class WaterAmountCalculatorTest {
     }
 
     @Test
-    public void calculateWithStartWithDescent() {
+    public void testCalculateWithStartWithDescent() {
         final Random random = new Random();
         int hillElement = random.nextInt(32000);
         int pitElement = hillElement - 1;
@@ -85,7 +86,7 @@ class WaterAmountCalculatorTest {
     }
 
     @Test
-    public void calculateWithEqualPitElements() {
+    public void testCalculateWithEqualPitElements() {
         final Random random = new Random();
         int hillElement = random.nextInt(32000);
         int pitElement = hillElement - 1;
@@ -97,7 +98,7 @@ class WaterAmountCalculatorTest {
     }
 
     @Test
-    public void calculateWithLeftHillIsHigherThanRight() {
+    public void testCalculateWithLeftHillIsHigherThanRight() {
         final Random random = new Random();
         int higherHillElement = random.nextInt(31999) + 2;
         int lowerHillElement = higherHillElement - 1;
@@ -110,7 +111,7 @@ class WaterAmountCalculatorTest {
     }
 
     @Test
-    public void calculateWithLeftHillIsLowerThanRight() {
+    public void testCalculateWithLeftHillIsLowerThanRight() {
         final Random random = new Random();
         int higherHillElement = random.nextInt(31999) + 2;
         int lowerHillElement = higherHillElement - 1;
@@ -123,7 +124,7 @@ class WaterAmountCalculatorTest {
     }
 
     @Test
-    public void calculateWithElementValueLessThanRangeBottom() {
+    public void testCalculateWithElementValueLessThanRangeBottom() {
         int incorrectElementValue = -1;
         final int[] landscape = new int[]{incorrectElementValue};
         IllegalArgumentException exception = Assertions.assertThrows(
@@ -135,14 +136,14 @@ class WaterAmountCalculatorTest {
     }
 
     @Test
-    public void calculateWithZeroLandscapeArrayLength() {
+    public void testCalculateWithZeroLandscapeArrayLength() {
         final int[] landscape = new int[0];
         final long actual = new WaterAmountCalculator().calculate(landscape);
         assertThat(actual).isEqualTo(0);
     }
 
     @Test
-    public void calculateWithElementValueGreaterThanRangeTop() {
+    public void testCalculateWithElementValueGreaterThanRangeTop() {
         int incorrectElementValue = new Random().nextInt() + 32001;
         final int[] landscape = new int[]{incorrectElementValue};
         IllegalArgumentException exception = Assertions.assertThrows(
@@ -154,7 +155,7 @@ class WaterAmountCalculatorTest {
     }
 
     @Test
-    public void calculateWithElementsCountIsMoreThanAllowCount() {
+    public void testCalculateWithElementsCountIsMoreThanAllowCount() {
         final int[] landscape = new int[32001];
         IllegalArgumentException exception = Assertions.assertThrows(
                 IllegalArgumentException.class, () -> {
